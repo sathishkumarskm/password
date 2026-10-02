@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Strength Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Strength Analyzer</h1>
+
+      <div class="card">
+        <label for="passwordInput">Enter a password</label>
+        <div class="input-row">
+          <input id="passwordInput" type="text" placeholder="Type or paste a password" autocomplete="off" />
+          <button id="analyzeBtn" class="primary">Check</button>
+        </div>
+
+        <div class="button-row">
+          <button id="generateBtn" class="secondary">Generate Strong Password</button>
+          <label class="length-control">
+            Length
+            <input id="lengthInput" type="number" min="8" max="32" value="14" />
+          </label>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-header">
+            <span>Strength</span>
+            <strong id="strengthLabel">-</strong>
+          </div>
+          <div class="meter" aria-label="Password strength meter">
+            <div id="strengthBar" class="meter-fill"></div>
+          </div>
+          <p id="scoreText">0/100</p>
+        </div>
+
+        <div class="criteria">
+          <h2>Check list</h2>
+          <ul>
+            <li id="lenCheck">At least 8 characters</li>
+            <li id="lowerCheck">Lowercase letters</li>
+            <li id="upperCheck">Uppercase letters</li>
+            <li id="numCheck">Numbers</li>
+            <li id="symCheck">Symbols</li>
+          </ul>
+        </div>
+
+        <div class="feedback-box">
+          <h2>Feedback</h2>
+          <p id="feedbackText">Your password strength will be shown here.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
